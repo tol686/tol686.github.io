@@ -89,6 +89,20 @@
             height: 320px;
             border-radius: 8px;
         }
+.banner {
+    position: fixed;
+    top: 100px;
+    z-index: 1000;
+}
+.banner-left {
+    left: 0;
+}
+.banner-right {
+    right: 0;
+}
+@media (max-width: 900px) {
+    .banner { display: none; }
+}
     </style>
     <script>
         function showactivity(a, b) {
@@ -134,6 +148,16 @@
     </div>
     <div class="activity" id="main2">
         <h2>test</h2>
+    </div>
+    <div class="banner banner-left">
+        <a href="https://contract.gosuslugi.ru/" target="_blank">
+            <img src="alabuga_banner.png" alt="Алабуга политех" style="width:360px;">
+        </a>
+    </div>
+    <div class="banner banner-right">
+        <a href="https://t.me/vpntolyan" target="_blank">
+            <img src="vpntolyan_banner.jpg" alt="VPN Tolyan" style="width:360px;">
+        </a>
     </div>
 </body>
 <script>
