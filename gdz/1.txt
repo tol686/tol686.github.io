@@ -1,3 +1,0 @@
-vless://c34bb303-d27e-4281-9704-2efc4d4920c8@80.74.30.230:46036?type=tcp&encryption=none&security=reality&pbk=&fp=chrome&sni=google.com&sid=6bb0&spx=%2F#trial
-vless://200b1c44-266a-407c-b3e4-98faf5a19d8c@45.88.172.251:50732?type=tcp&encryption=none&security=reality&pbk=&fp=chrome&sni=google.com&sid=f9&spx=%2F#trial
-
