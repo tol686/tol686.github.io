@@ -1,0 +1,326 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Comfortaa", sans-serif;
+  background: linear-gradient(135deg, #2F2F4D, #3A3A5E);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 2rem;
+  position: relative;
+}
+
+html, body {
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto; 
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  padding-bottom: 2rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 0.25rem;
+}
+
+.aka {
+  font-size: 1rem;
+  color: #aaa;
+  margin-bottom: 1.5rem;
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #ccc;
+}
+
+.myfriends p {
+  font-size: 1.2rem;
+  margin: 1rem;
+  color: #ccc;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.link-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.links a {
+  text-decoration: none;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.links a:hover {
+  background: #3A3A5E;
+  transform: scale(1.05);
+}
+
+.line-image {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  height: auto;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+.artline-image {
+  bottom: -67px;
+  max-width: 165px;
+  margin-left: 168px;
+}
+
+.rknline-image {
+  bottom: -65px;
+  max-width: 200px;
+  margin-right: 150px;
+}
+
+.musicline-image {
+  bottom: -80px;
+  max-width: 165px;
+  margin-left: 135px;
+}
+
+.avatar-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.bio-text {
+  color: #eee;
+  text-align: center;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.bio-text h2 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.about-me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  width: 800px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.like-section {
+  width: 100%;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #141414;
+}
+
+.like-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.like-content p {
+  margin: 0;
+  padding: 0.5rem 1.2rem;
+  background: #2F2F4D;
+  border-radius: 12px;
+  border: 1px solid #3A3A5E;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.like-content p:hover {
+  background: #3A3A5E;
+  transform: translateY(-2px);
+}
+
+.myfriends {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  width: 800px;
+  min-height: 110px;
+  margin: 2rem auto 0 auto;
+  margin-top: 16px !important;
+  opacity: 0.2;
+  visibility: visible;
+  transition: opacity 0.6s ease;
+}
+
+.myfriends.visible {
+  opacity: 1;
+}
+
+.language-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.language-switcher button {
+  background: #2F2F4D;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: "Comfortaa", sans-serif;
+  transition: all 0.3s ease;
+}
+
+.language-switcher button:hover {
+  background: #3A3A5E;
+  transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+  .about-me, .myfriends {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+    overflow: auto;
+  }
+
+  html, body {
+    overflow: auto;
+  }
+
+  .container {
+    padding: 0 0 20px 0;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+  }
+  
+  .aka {
+    font-size: 0.9rem;
+  }
+  
+  p {
+    font-size: 1rem;
+  }
+  
+  .links {
+    gap: 0.8rem;
+  }
+  
+  .links a {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .line-image {
+    display: none !important;
+  }
+  
+  .about-me {
+    padding: 1.5rem;
+    margin-top: 2rem;
+    width: 100%;
+  }
+  
+  .myfriends {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    margin: 1rem 0;
+    margin-top: 16px; 
+    box-shadow: 0 4px 24px #141414;
+    padding: 1rem;
+  }
+  
+  .avatar-img {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .like-content p {
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .links a {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  .about-me, .myfriends {
+    padding: 1rem;
+  }
+}
+
+.photos-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2F2F4D;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.photos-button:hover {
+  background: #3A3A5E;
+  transform: scale(1.05);
+}
