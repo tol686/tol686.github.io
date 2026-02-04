@@ -1,75 +1,91 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Tolyan</title>
-  <link rel="stylesheet" href="styles.css" />
-  <meta name="description" content="Короткая визитка — Tolyan." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="image/png" sizes="512x511" rel="icon" href="https://tolyaneblan.ru/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://tolyaneblan.ru/osu-cursor/dist/index.cjs.js"></script>
+  <meta name="description" content="About Tolyan">
+  <title>About Tolyan</title>
 </head>
 <body>
-  <div class="bg-photo-wrap" aria-hidden="true">
-    <img class="bg-photo" src="background.jpg" alt="" />
-    <div class="bg-overlay"></div>
-  </div>
+  <div class="container">
+    <h1>Tolyan</h1>
+    <p>привет это толян, я есть в вар тандер, а ты?</p>
+    <div class="links">
+      <div class="link-item">
+        <a href="https://steamcommunity.com/id/TolyanZ" target="_blank"><i class="fa-brands fa-steam"></i>Steam</a>
+      </div>
+      <div class="link-item">
+        <a href="https://www.tiktok.com/@tolyan_wt" target="_blank"><i class="fa-brands fa-tiktok"></i>TikTok</a>
+      </div>
+      <div class="link-item">
+        <a href="https://discord.gg/N4efWKybTm" target="_blank"><i class="fa-brands fa-discord"></i>Discord</a>
+      </div>
+      <div class="link-item">
+        <a href="https://t.me/spamtolyanbot" target="_blank"><i class="fa-brands fa-telegram"></i>Telegram</a>
+      </div>
+      <div class="link-item">
+        <a href="https://git.tolyaneblan.ru" target="_blank"><i class="fa-brands fa-github"></i>Git</a>
+      </div>
+      <div class="link-item">
+        <a href="mailto:mail@tolyaneblan.ru">Mail</a>
+      </div>
+    </div>
 
-  <header class="hero">
-    <div class="container hero-inner">
-      <img class="avatar" src="avatar.jpg" alt="Avatar (замените avatar.jpg)" />
-      <div class="hero-text">
-        <h1 class="name">Tolyan</h1>
-        <p class="tagline">сижу гнию</p>
-
-        <div class="interesting">
-          <h3>Во что играю</h3>
-          <p id="fun-fact" class="fact"></p>
-          <div class="actions">
-            <button id="next-fact" class="btn">Другая игра</button>
+    <div class="about-me" id="aboutMe">
+      <img src="https://tolyaneblan.ru/img/avatar.png" class="avatar-img">
+      <div class="bio-text">
+        <h2 id="aboutTitle">немножка обо мне</h2>
+        <p id="aboutText">пользуюсь арч линукс играю в танки и все так то</p>
+        <div class="like-section">
+          <h2 id="likesTitle">шарю за :3</h2>
+          <div class="like-content">
+            <p id="like1">· арч линукс</p>
+            <p id="like2">· линукс</p>
+            <p id="like3">· вар тандер</p>
           </div>
         </div>
       </div>
     </div>
-  </header>
+  </div>
 
-  <main class="container">
-    <section id="about" class="card">
-      <h2>Обо мне</h2>
-      <p>Долбоеб.</p>
-    </section>
 
-    <section id="contacts" class="card contact-card">
-      <h2>Контакты</h2>
+<!-- osu! cursor -->
+<style>
+  * {
+      cursor: none !important;
+  }
+  .osu-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+  }
+  
+  @media (hover: none), (pointer: coarse) {
+    * {
+      cursor: none !important;
+    }
+    .osu-cursor {
+      display: none !important;
+    }
+  }
 
-      <p>
-        <span class="ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M21 3L3 10l5 2 2 6 2-5 5 3 4-13z"/></svg></span>
-        Telegram: <a href="https://t.me/tolyanz" target="_blank" rel="noopener">@tolyanz</a>
-      </p>
+  
+</style>
 
-      <div class="socials">
-        <a href="https://www.tiktok.com/@tolyan_wt?_r=1&_t=ZS-91sk043IXA5" target="_blank" rel="noopener">
-          <span class="ico"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2v7a4 4 0 01-4 4 4 4 0 100 8 8 8 0 008-8V6h2V2h-6z"/></svg></span>
-          TikTok
-        </a>
-        <a href="https://t.me/tolyanz" target="_blank" rel="noopener">
-          <span class="ico"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M21 3L3 10l5 2 2 6 2-5 5 3 4-13z"/></svg></span>
-          Telegram
-        </a>
-        <a href="https://discord.gg/5HhZnuWuNe" target="_blank" rel="noopener">
-          <span class="ico"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M20 4a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2h10l4 2V4zM8.5 11.2a1 1 0 110-2 1 1 0 010 2zm7 0a1 1 0 110-2 1 1 0 010 2z"/></svg></span>
-          Discord
-        </a>
-        <a href="https://steamcommunity.com/id/TolyanZ/" target="_blank" rel="noopener">
-          <span class="ico"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M21.5 9.8c-.2-.6-.8-1-1.4-1-1 0-1.9.8-1.9 1.8 0 .2.0.4.1.6l-3.5 1.4c-.6-.4-1.3-.6-2-.6-1.7 0-3 1.4-3 3.1s1.4 3 3 3c1.6 0 2.9-1.3 2.9-2.9 0-.5-.1-1-.3-1.4l3.8-1.5c.5.3 1.1.5 1.8.5 1.7 0 3-1.4 3-3s-1.3-3-3-3c-.2 0-.4 0-.6.1zM8 13.9c.8 0 1.5-.7 1.5-1.5S8.8 10.9 8 10.9 6.5 11.6 6.5 12.4s.7 1.5 1.5 1.5z"/></svg></span>
-          Steam
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">© <span id="year"></span> Tolyan — все права в опасности.</div>
-  </footer>
-
-  <script src="script.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const cursor = new osuCursor({
+      rotate: true,
+      size: 1.0
+    });
+  });
+</script>
 </body>
 </html>
