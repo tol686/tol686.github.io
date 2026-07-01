@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tolyan // Bio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&family=Zen+Maru+Gothic:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fff3e2;
+    --cream-deep:#ffe7c7;
+    --orange:#ff9d52;
+    --rust:#c8602f;
+    --brown:#5a3826;
+    --gold:#f4c469;
+    --ink:#3a2718;
+    --paper:#fffaf2;
+    --shadow: 0 10px 30px rgba(90,56,38,0.18);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(ellipse at 20% 0%, #fff8ec 0%, transparent 55%),
+      radial-gradient(ellipse at 90% 10%, #ffe2bb 0%, transparent 50%),
+      var(--cream);
+    color:var(--ink);
+    font-family:'Zen Maru Gothic', sans-serif;
+    overflow-x:hidden;
+    position:relative;
+  }
+  ::selection{background:var(--gold); color:var(--brown);}
+
+  /* ---------- falling petals ---------- */
+  .petals{position:fixed; inset:0; pointer-events:none; z-index:5; overflow:hidden;}
+  .petal{
+    position:absolute; top:-40px;
+    width:14px; height:14px;
+    background: radial-gradient(circle at 30% 30%, #ffd9e8, var(--orange) 80%);
+    border-radius: 70% 30% 70% 30% / 60% 40% 60% 40%;
+    opacity:.85;
+    animation: fall linear infinite;
+  }
+  @keyframes fall{
+    0%{ transform: translateY(-5vh) translateX(0) rotate(0deg); }
+    100%{ transform: translateY(105vh) translateX(40px) rotate(360deg); }
+  }
+
+  /* ---------- header / hero ---------- */
+  header.hero{
+    position:relative;
+    padding: 64px 20px 90px;
+    text-align:center;
+    background:
+      linear-gradient(180deg, rgba(255,243,226,0) 60%, var(--cream) 100%),
+      linear-gradient(135deg, #ffb066 0%, #ff8a4c 35%, #e9622f 70%, #c8602f 100%);
+    clip-path: ellipse(140% 100% at 50% 0%);
+    overflow:hidden;
+  }
+  header.hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle, rgba(255,255,255,.5) 2px, transparent 2.5px);
+    background-size: 46px 46px;
+    opacity:.35;
+    mix-blend-mode: overlay;
+  }
+  .clouds{position:absolute; inset:0; overflow:hidden; z-index:0;}
+  .cloud{
+    position:absolute; background:rgba(255,255,255,.55); border-radius:50%;
+    filter:blur(1px);
+  }
+  .eyebrow{
+    font-family:'Zen Maru Gothic', sans-serif;
+    font-weight:700;
+    letter-spacing:.02em;
+    font-size:14px;
+    color:#fff2e0;
+    text-shadow:0 2px 6px rgba(120,50,10,.4);
+    position:relative; z-index:2;
+    min-height:20px;
+    transition: opacity .35s ease;
+  }
+  .avatar-wrap{
+    position:relative;
+    width:168px; height:168px;
+    margin:22px auto 18px;
+    z-index:2;
+  }
+  .avatar-ring{
+    position:absolute; inset:-10px;
+    border-radius:50%;
+    background: conic-gradient(from 0deg, var(--gold), #fff, var(--gold), #fff, var(--gold));
+    animation: spin 9s linear infinite;
+  }
+  @keyframes spin{ to{ transform: rotate(360deg);} }
+  .avatar{
+    position:absolute; inset:0;
+    border-radius:50%;
+    background: linear-gradient(160deg,#ffe3c2,#ffb56b 60%,#ef8a3f);
+    border:5px solid var(--paper);
+    box-shadow: var(--shadow);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .avatar img{
+    width:100%; height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .ears{
+    position:absolute; top:-26px; width:100%; display:flex; justify-content:space-between;
+    padding:0 14px; z-index:1;
+  }
+  .ear{
+    width:46px; height:60px;
+    background: linear-gradient(160deg,#ffb066,#e9622f);
+    border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+    transform-origin: bottom center;
+    box-shadow: inset 0 -8px 14px rgba(90,40,10,.3);
+    animation: twitch 4.5s ease-in-out infinite;
+  }
+  .ear::after{
+    content:""; position:absolute; inset:10px 10px 14px;
+    background: linear-gradient(160deg,#fff2de,#ffd9ab);
+    border-radius: 50% 50% 50% 50% / 65% 65% 35% 35%;
+  }
+  .ear.right{ animation-delay:.3s; transform: scaleX(-1);}
+  @keyframes twitch{
+    0%, 88%, 100%{ transform: rotate(0deg);}
+    90%{ transform: rotate(-8deg);}
+    93%{ transform: rotate(6deg);}
+    96%{ transform: rotate(0deg);}
+  }
+  .ear.right.twitch-anim{ transform: scaleX(-1) rotate(0deg); }
+
+  h1.title{
+    font-family:'Yuji Syuku', serif;
+    font-size: clamp(34px, 7vw, 58px);
+    margin: 6px 0 6px;
+    color:#fff;
+    text-shadow: 0 4px 18px rgba(110,40,5,.45);
+    position:relative; z-index:2;
+  }
+  p.tagline{
+    font-size:16px;
+    max-width:480px;
+    margin: 0 auto;
+    color:#fff4e4;
+    position:relative; z-index:2;
+    line-height:1.7;
+  }
+  .status-pill{
+    display:inline-flex; align-items:center; gap:8px;
+    margin-top:18px;
+    background:rgba(255,255,255,.22);
+    border:1px solid rgba(255,255,255,.4);
+    padding:7px 16px; border-radius:999px;
+    font-size:13px; color:#fff; backdrop-filter:blur(4px);
+    position:relative; z-index:2;
+  }
+  .dot{width:8px; height:8px; border-radius:50%; background:#7CFFA0; box-shadow:0 0 8px #7CFFA0; animation:blink 2s ease-in-out infinite;}
+  @keyframes blink{ 50%{opacity:.35;} }
+
+  /* ---------- sections ---------- */
+  main{ max-width: 920px; margin: -30px auto 0; padding: 0 20px 80px; position:relative; z-index:2;}
+  section{ margin-top:64px; }
+  .section-head{
+    display:flex; align-items:baseline; gap:12px; margin-bottom:22px;
+  }
+  .section-head .mark{
+    font-family:'Yuji Syuku', serif; font-size:30px; color:var(--orange);
+  }
+  .section-head h2{
+    font-size:22px; margin:0; color:var(--brown); letter-spacing:.02em;
+  }
+  .section-head .rule{
+    flex:1; height:2px;
+    background: repeating-linear-gradient(90deg, var(--gold) 0 6px, transparent 6px 12px);
+  }
+
+  /* link den (paw cards) */
+  .links-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px,1fr));
+    gap:16px;
+  }
+  .card{
+    display:flex; align-items:center; gap:14px;
+    background: var(--paper);
+    border:2px solid #f3dcb8;
+    border-radius:18px;
+    padding:16px 18px;
+    text-decoration:none;
+    color:var(--ink);
+    box-shadow: 0 4px 0 #f3dcb8;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .card:hover{
+    transform: translateY(-4px);
+    border-color: var(--orange);
+    box-shadow: 0 8px 0 var(--gold);
+  }
+  .card .icon{
+    width:42px; height:42px; flex:0 0 auto;
+    border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
+    background: linear-gradient(160deg, var(--gold), var(--orange));
+    color:#fff;
+  }
+  .card .icon svg{ width:22px; height:22px; }
+  .card .meta b{ display:block; font-size:15px; }
+  .card .meta span{ display:block; font-size:12.5px; color:#8a6a52; font-family:'JetBrains Mono', monospace;}
+  .card .paw{
+    position:absolute; right:-8px; bottom:-10px; font-size:46px; opacity:.06; transform:rotate(-12deg);
+  }
+
+  /* about */
+  .about-box{
+    background: var(--paper);
+    border:2px solid #f3dcb8;
+    border-radius:22px;
+    padding: 26px 28px;
+    box-shadow: var(--shadow);
+    line-height:1.8;
+    font-size:15.5px;
+  }
+  .about-box strong{ color:var(--rust); }
+
+  /* tetris */
+  .game-wrap{
+    background: linear-gradient(165deg, #6b4327, #4a2c19);
+    border-radius: 26px;
+    padding: 22px;
+    box-shadow: var(--shadow), inset 0 0 0 2px rgba(255,210,150,.15);
+    position:relative;
+  }
+  .game-wrap::before{
+    content:"きつね耳ゲーム";
+    position:absolute; top:-13px; left:24px;
+    background:var(--gold); color:var(--brown);
+    font-family:'Yuji Syuku',serif; font-size:13px;
+    padding:4px 12px; border-radius:8px;
+    box-shadow:0 3px 0 #c89033;
+  }
+  .console{
+    display:flex; gap:22px; flex-wrap:wrap; align-items:flex-start; justify-content:center;
+  }
+  #tetris-canvas{
+    background: #1f140c;
+    border-radius:10px;
+    box-shadow: inset 0 0 0 4px #3a2515, 0 6px 18px rgba(0,0,0,.4);
+    image-rendering: pixelated;
+  }
+  .side-panel{
+    min-width:160px;
+    color:#ffe9c9;
+    font-family:'JetBrains Mono', monospace;
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .stat-box{
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,210,150,.25);
+    border-radius:10px;
+    padding:10px 12px;
+  }
+  .stat-box .label{ font-size:11px; opacity:.7; letter-spacing:.1em;}
+  .stat-box .value{ font-size:22px; font-weight:700; color:var(--gold);}
+  #next-canvas{
+    background:#1f140c; border-radius:8px;
+    box-shadow: inset 0 0 0 3px #3a2515;
+  }
+  .controls-hint{ font-size:11.5px; line-height:1.6; opacity:.85; }
+  .btn-row{ display:flex; gap:8px; flex-wrap:wrap; }
+  .btn{
+    flex:1;
+    background: linear-gradient(160deg, var(--gold), #e1a23f);
+    border:none; border-radius:8px;
+    color:#4a2c10; font-weight:700; font-family:'Zen Maru Gothic',sans-serif;
+    padding:9px 10px; cursor:pointer;
+    box-shadow:0 3px 0 #a87423;
+    transition: transform .1s;
+    font-size:13px;
+  }
+  .btn:active{ transform: translateY(2px); box-shadow:0 1px 0 #a87423; }
+  .touch-pad{ display:none; }
+  @media (max-width: 640px){
+    .touch-pad{
+      display:grid;
+      grid-template-columns: repeat(4,1fr);
+      gap:8px; margin-top:8px;
+    }
+  }
+  .overlay-msg{
+    position:absolute; inset:0; border-radius:10px;
+    background:rgba(20,12,6,.78);
+    color:#ffe9c9; display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:14px; font-size:13px; line-height:1.7;
+    backdrop-filter: blur(1px);
+  }
+  .canvas-wrap{ position:relative; }
+
+  /* footer */
+  footer{
+    text-align:center; padding:34px 20px 50px;
+    color:#8a6a52; font-size:13px; position:relative; z-index:2;
+  }
+  footer .fox-sign{ font-family:'Yuji Syuku', serif; font-size:18px; color:var(--rust); display:block; margin-bottom:6px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="petals" id="petals"></div>
+
+<header class="hero">
+  <div class="clouds" id="clouds"></div>
+  <div class="eyebrow" id="eyebrow">кто рано встаёт — тот к обеду устаёт</div>
+
+  <div class="avatar-wrap">
+    <!-- <div class="ears">
+      <div class="ear left"></div>
+      <div class="ear right"></div>
+    </div> -->
+    <div class="avatar-ring"></div>
+    <div class="avatar">
+	    <img src="avatar.png">
+    </div>
+  </div>
+
+	<h1 class="title">Tolyan</h1>
+  <div class="status-pill"><span class="dot"></span> работает — и похуй</div>
+</header>
+
+<main>
+
+  <section id="links">
+    <div class="section-head">
+      <span class="mark">壱</span>
+      <h2>Где меня искать</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="links-grid">
+
+      <a class="card" href="https://steamcommunity.com/id/TolyanZ" target="_blank" rel="noopener">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.1 2 11.3c0 .4.3.7.7.7l4.6 1.8c.4-.3.9-.4 1.4-.4l2-3v-.1c0-2.1 1.7-3.8 3.8-3.8s3.8 1.7 3.8 3.8-1.7 3.8-3.8 3.8h-.1l-3 2.1c0 .1 0 .2 0 .3 0 1.6-1.3 2.9-2.9 2.9-1.4 0-2.6-1-2.8-2.4l-3.3-1.3C3.3 18.9 7.3 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></div>
+        <div class="meta"><b>Steam</b><span>TolyanZ</span></div>
+        <div class="paw">🐾</div>
+      </a>
+
+      <a class="card" href="https://www.tiktok.com/@tolyan_wt" target="_blank" rel="noopener">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2c.4 2.3 2 4 4.5 4.2v3.1c-1.6.1-3-.4-4.3-1.3v6.7c0 3.6-2.9 6.3-6.4 6.3S4 18.3 4 14.7c0-3.5 2.8-6.3 6.3-6.3.4 0 .7 0 1.1.1v3.2c-.3-.1-.7-.2-1.1-.2-1.7 0-3.1 1.4-3.1 3.2s1.4 3.2 3.1 3.2 3.2-1.3 3.2-3.1V2h3z"/></svg></div>
+        <div class="meta"><b>TikTok</b><span>@tolyan_wt</span></div>
+        <div class="paw">🐾</div>
+      </a>
+
+      <a class="card" href="https://discord.gg/N4efWKybTm" target="_blank" rel="noopener">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 5.5c-1.5-.7-3.1-1.2-4.8-1.5-.2.4-.5.9-.6 1.3-1.8-.3-3.5-.3-5.3 0-.2-.4-.4-.9-.6-1.3-1.7.3-3.3.8-4.8 1.5C1 9.7.3 13.8.6 17.9c2 1.5 3.9 2.4 5.8 3 .5-.6.9-1.3 1.2-2-.7-.3-1.3-.6-1.9-1 .2-.1.3-.2.5-.4 3.7 1.7 7.7 1.7 11.3 0 .2.1.3.3.5.4-.6.4-1.2.7-1.9 1 .3.7.7 1.4 1.2 2 2-.6 3.9-1.5 5.8-3 .4-4.7-.8-8.8-3.1-12.4zM8.7 15.3c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2zm6.6 0c-1.1 0-2-1-2-2.2s.9-2.2 2-2.2 2 1 2 2.2-.9 2.2-2 2.2z"/></svg></div>
+        <div class="meta"><b>Discord</b><span>сервер</span></div>
+        <div class="paw">🐾</div>
+      </a>
+
+      <a class="card" href="https://t.me/spamtolyanbot" target="_blank" rel="noopener">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.3 2.6 11.8c-1.1.4-1.1 1.2-.2 1.5l5 1.5 1.9 6c.2.6.4.7.8.7.4 0 .5-.2.8-.4l2.5-2.4 5 3.7c.9.5 1.6.2 1.8-.8l3.3-15.4c.3-1.2-.5-1.7-1.6-1.4zM8.9 14.6l9.8-6.2c.5-.3.9-.1.6.3l-8.4 7.6-.3 3.3-1.7-5z"/></svg></div>
+        <div class="meta"><b>Telegram</b><span>@spamtolyanbot</span></div>
+        <div class="paw">🐾</div>
+      </a>
+
+      <a class="card" href="https://git.tolyaneblan.ru/" target="_blank" rel="noopener">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 1 13l3 3 8-8 8 8 3-3L12 2zM4 17l8 5 8-5-8-5-8 5z" opacity=".0"/><path d="M23.5 12.6 11.4.5c-.6-.6-1.5-.6-2.1 0L7 2.8l3 3c.6-.2 1.4-.1 1.9.4.5.5.6 1.3.4 1.9l2.9 2.9c.6-.2 1.4-.1 1.9.4.8.8.8 2 0 2.7-.8.8-2 .8-2.7 0-.6-.6-.7-1.4-.4-2L11.2 9.4v7.2c.2.1.3.2.5.4.8.8.8 2 0 2.7-.8.8-2 .8-2.7 0-.8-.8-.8-2 0-2.7.2-.2.4-.3.6-.4V9.3c-.2-.1-.4-.2-.6-.4-.6-.6-.7-1.4-.4-2.1L5.8 4l-5.3 5.3c-.6.6-.6 1.5 0 2.1l12.1 12.1c.6.6 1.5.6 2.1 0l8.8-8.8c.6-.6.6-1.5 0-2.1z"/></svg></div>
+        <div class="meta"><b>Git</b><span>git.tolyaneblan.ru</span></div>
+        <div class="paw">🐾</div>
+      </a>
+
+      <a class="card" href="mailto:mail@tolyaneblan.ru">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 5h20v14H2V5zm2 2v.01L12 13l8-5.99V7H4zm16 2.4-7.4 5.5a1 1 0 0 1-1.2 0L4 9.4V17h16V9.4z"/></svg></div>
+        <div class="meta"><b>Почта</b><span>mail@tolyaneblan.ru</span></div>
+        <div class="paw">🐾</div>
+      </a>
+
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="section-head">
+      <span class="mark">弐</span>
+      <h2>Коротко</h2>
+      <div class="rule"></div>
+    </div>
+    <div class="about-box">
+      Здесь ссылки, тут — тетрис. Если что-то не работает, <strong>значит, так и задумано</strong>.
+    </div>
+  </section>
+
+  <section id="game">
+    <div class="section-head">
+      <span class="mark">参</span>
+      <h2>Тетрис</h2>
+      <div class="rule"></div>
+    </div>
+
+    <div class="game-wrap">
+      <div class="console">
+        <div class="canvas-wrap">
+          <canvas id="tetris-canvas" width="240" height="480"></canvas>
+          <div class="overlay-msg" id="overlay">
+            🦊 нажми <b>«старт»</b> или пробел,<br> чтобы начать
+          </div>
+        </div>
+        <div class="side-panel">
+          <div class="stat-box">
+            <div class="label">СЧЁТ</div>
+            <div class="value" id="score">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="label">УРОВЕНЬ</div>
+            <div class="value" id="level">1</div>
+          </div>
+          <div class="stat-box">
+            <div class="label">ЛИНИИ</div>
+            <div class="value" id="lines">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="label">СЛЕДУЮЩАЯ</div>
+            <canvas id="next-canvas" width="100" height="100"></canvas>
+          </div>
+          <div class="btn-row">
+            <button class="btn" id="startBtn">Старт</button>
+            <button class="btn" id="pauseBtn">Пауза</button>
+          </div>
+          <div class="controls-hint">
+            ⬅️➡️ движение · ⬆️ поворот<br>⬇️ ускорить · пробел — сброс
+          </div>
+          <div class="touch-pad">
+            <button class="btn" data-act="left">⬅️</button>
+            <button class="btn" data-act="rotate">⤴️</button>
+            <button class="btn" data-act="right">➡️</button>
+            <button class="btn" data-act="down">⬇️</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span class="fox-sign">🦊 こん こん</span>
+  заходи ещё, тут лампово
+</footer>
+
+<script>
+/* ---------------- rotating quotes ---------------- */
+(function(){
+  const quotes = [
+    'кто рано встаёт — тот к обеду устаёт',
+    'работает — и похуй',
+    'ни шагу вперёд',
+    'отложил на завтра — разгрузил сегодня',
+    'если не получилось с первого раза — забей',
+    'лучшая защита — это не оборона',
+    'я не опаздываю, я создаю интригу',
+    'tech debt — это инвестиция в будущее'
+  ];
+  const el = document.getElementById('eyebrow');
+  let i = 0;
+  setInterval(()=>{
+    i = (i+1) % quotes.length;
+    el.style.opacity = 0;
+    setTimeout(()=>{ el.textContent = quotes[i]; el.style.opacity = 1; }, 350);
+  }, 3800);
+})();
+
+
+(function(){
+  const petalHost = document.getElementById('petals');
+  for(let i=0;i<18;i++){
+    const p = document.createElement('div');
+    p.className='petal';
+    p.style.left = Math.random()*100+'vw';
+    p.style.animationDuration = (8+Math.random()*10)+'s';
+    p.style.animationDelay = (Math.random()*10)+'s';
+    p.style.transform = `scale(${0.6+Math.random()*0.9})`;
+    petalHost.appendChild(p);
+  }
+  const cloudHost = document.getElementById('clouds');
+  for(let i=0;i<6;i++){
+    const c = document.createElement('div');
+    c.className='cloud';
+    const s = 60+Math.random()*100;
+    c.style.width=s+'px'; c.style.height=s*0.5+'px';
+    c.style.top = (Math.random()*60)+'%';
+    c.style.left = (Math.random()*100)+'%';
+    c.style.opacity = 0.2+Math.random()*0.3;
+    cloudHost.appendChild(c);
+  }
+})();
+
+/* ---------------- TETRIS ---------------- */
+(function(){
+  const cvs = document.getElementById('tetris-canvas');
+  const ctx = cvs.getContext('2d');
+  const nextCvs = document.getElementById('next-canvas');
+  const nctx = nextCvs.getContext('2d');
+  const COLS = 10, ROWS = 20;
+  const BLOCK = cvs.width / COLS;
+
+  const COLORS = {
+    I: '#7fd8ff', O:'#f4c469', T:'#d39bff', S:'#8be08b',
+    Z:'#ff8a8a', J:'#7fa0ff', L:'#ff9d52'
+  };
+  const SHAPES = {
+    I: [[1,1,1,1]],
+    O: [[1,1],[1,1]],
+    T: [[0,1,0],[1,1,1]],
+    S: [[0,1,1],[1,1,0]],
+    Z: [[1,1,0],[0,1,1]],
+    J: [[1,0,0],[1,1,1]],
+    L: [[0,0,1],[1,1,1]]
+  };
+  const TYPES = Object.keys(SHAPES);
+
+  let board, current, next, score, level, lines, dropInterval, dropCounter, lastTime, running, paused, gameOverFlag;
+
+  function emptyBoard(){
+    return Array.from({length:ROWS}, ()=>Array(COLS).fill(null));
+  }
+
+  function randomPiece(){
+    const type = TYPES[Math.floor(Math.random()*TYPES.length)];
+    return { type, shape: SHAPES[type].map(r=>r.slice()), x: Math.floor((COLS - SHAPES[type][0].length)/2), y: 0 };
+  }
+
+  function rotate(shape){
+    const rows = shape.length, cols = shape[0].length;
+    const res = Array.from({length:cols},()=>Array(rows).fill(0));
+    for(let r=0;r<rows;r++) for(let c=0;c<cols;c++) res[c][rows-1-r]=shape[r][c];
+    return res;
+  }
+
+  function collide(piece, board, ox=0, oy=0, shapeOverride=null){
+    const shape = shapeOverride || piece.shape;
+    for(let r=0;r<shape.length;r++){
+      for(let c=0;c<shape[r].length;c++){
+        if(!shape[r][c]) continue;
+        const x = piece.x + c + ox;
+        const y = piece.y + r + oy;
+        if(x<0 || x>=COLS || y>=ROWS) return true;
+        if(y>=0 && board[y][x]) return true;
+      }
+    }
+    return false;
+  }
+
+  function merge(piece, board){
+    piece.shape.forEach((row,r)=>{
+      row.forEach((v,c)=>{
+        if(v){
+          const y = piece.y+r, x = piece.x+c;
+          if(y>=0) board[y][x] = piece.type;
+        }
+      });
+    });
+  }
+
+  function clearLines(){
+    let cleared = 0;
+    outer: for(let r=ROWS-1;r>=0;r--){
+      for(let c=0;c<COLS;c++){ if(!board[r][c]) continue outer; }
+      board.splice(r,1);
+      board.unshift(Array(COLS).fill(null));
+      cleared++; r++;
+    }
+    if(cleared>0){
+      const points = [0,100,300,500,800][cleared]*level;
+      score += points;
+      lines += cleared;
+      level = 1 + Math.floor(lines/10);
+      dropInterval = Math.max(120, 800 - (level-1)*60);
+      updateStats();
+    }
+  }
+
+  function updateStats(){
+    document.getElementById('score').textContent = score;
+    document.getElementById('level').textContent = level;
+    document.getElementById('lines').textContent = lines;
+  }
+
+  function drawCell(c, x, y, color, alpha=1){
+    c.globalAlpha = alpha;
+    c.fillStyle = color;
+    c.fillRect(x*BLOCK+1, y*BLOCK+1, BLOCK-2, BLOCK-2);
+    c.fillStyle = 'rgba(255,255,255,.25)';
+    c.fillRect(x*BLOCK+1, y*BLOCK+1, BLOCK-2, (BLOCK-2)*0.3);
+    c.globalAlpha = 1;
+  }
+
+  function draw(){
+    ctx.fillStyle = '#1f140c';
+    ctx.fillRect(0,0,cvs.width,cvs.height);
+    ctx.strokeStyle = 'rgba(255,210,150,.06)';
+    for(let x=0;x<=COLS;x++){ ctx.beginPath(); ctx.moveTo(x*BLOCK,0); ctx.lineTo(x*BLOCK,cvs.height); ctx.stroke(); }
+    for(let y=0;y<=ROWS;y++){ ctx.beginPath(); ctx.moveTo(0,y*BLOCK); ctx.lineTo(cvs.width,y*BLOCK); ctx.stroke(); }
+
+    board.forEach((row,r)=>row.forEach((v,c)=>{ if(v) drawCell(ctx,c,r,COLORS[v]); }));
+
+    if(current){
+      current.shape.forEach((row,r)=>row.forEach((v,c)=>{
+        if(v) drawCell(ctx, current.x+c, current.y+r, COLORS[current.type]);
+      }));
+    }
+
+    // next preview
+    nctx.fillStyle = '#1f140c';
+    nctx.fillRect(0,0,nextCvs.width,nextCvs.height);
+    if(next){
+      const s = next.shape;
+      const bs = 20;
+      const offX = (nextCvs.width - s[0].length*bs)/2;
+      const offY = (nextCvs.height - s.length*bs)/2;
+      s.forEach((row,r)=>row.forEach((v,c)=>{
+        if(v){
+          nctx.fillStyle = COLORS[next.type];
+          nctx.fillRect(offX+c*bs+1, offY+r*bs+1, bs-2, bs-2);
+        }
+      }));
+    }
+  }
+
+  function spawn(){
+    current = next || randomPiece();
+    next = randomPiece();
+    if(collide(current, board)){
+      gameOver();
+    }
+  }
+
+  function hardDrop(){
+    while(!collide(current, board, 0, 1)) current.y++;
+    lockPiece();
+  }
+
+  function lockPiece(){
+    merge(current, board);
+    clearLines();
+    spawn();
+    draw();
+  }
+
+  function move(dx){
+    if(!collide(current, board, dx, 0)) current.x += dx;
+    draw();
+  }
+
+  function softDrop(){
+    if(!collide(current, board, 0, 1)){
+      current.y++;
+      score += 1;
+      updateStats();
+    } else {
+      lockPiece();
+    }
+    draw();
+  }
+
+  function doRotate(){
+    const rotated = rotate(current.shape);
+    if(!collide(current, board, 0, 0, rotated)){
+      current.shape = rotated;
+    } else if(!collide(current, board, 1, 0, rotated)){
+      current.x += 1; current.shape = rotated;
+    } else if(!collide(current, board, -1, 0, rotated)){
+      current.x -= 1; current.shape = rotated;
+    }
+    draw();
+  }
+
+  function gameOver(){
+    running = false;
+    gameOverFlag = true;
+    showOverlay(`🦊 конец игры<br>счёт: <b>${score}</b><br>нажми «старт» ещё раз`);
+  }
+
+  function showOverlay(html){
+    const ov = document.getElementById('overlay');
+    ov.innerHTML = html;
+    ov.style.display = 'flex';
+  }
+  function hideOverlay(){
+    document.getElementById('overlay').style.display = 'none';
+  }
+
+  function resetGame(){
+    board = emptyBoard();
+    score = 0; level = 1; lines = 0;
+    dropInterval = 800; dropCounter = 0; lastTime = 0;
+    gameOverFlag = false;
+    next = randomPiece();
+    spawn();
+    updateStats();
+    draw();
+  }
+
+  function update(time=0){
+    if(!running || paused) { return; }
+    const delta = time - lastTime;
+    lastTime = time;
+    dropCounter += delta;
+    if(dropCounter > dropInterval){
+      softDrop();
+      dropCounter = 0;
+    }
+    requestAnimationFrame(update);
+  }
+
+  document.getElementById('startBtn').addEventListener('click', ()=>{
+    if(!running || gameOverFlag){
+      resetGame();
+      running = true; paused = false;
+      hideOverlay();
+      lastTime = performance.now();
+      requestAnimationFrame(update);
+    }
+  });
+
+  document.getElementById('pauseBtn').addEventListener('click', ()=>{
+    if(!running) return;
+    paused = !paused;
+    if(paused){ showOverlay('⏸ пауза'); }
+    else { hideOverlay(); lastTime = performance.now(); requestAnimationFrame(update); }
+  });
+
+  document.addEventListener('keydown', (e)=>{
+    if(!running || paused || gameOverFlag) {
+      if(e.code === 'Space'){ document.getElementById('startBtn').click(); }
+      return;
+    }
+    switch(e.code){
+      case 'ArrowLeft': move(-1); e.preventDefault(); break;
+      case 'ArrowRight': move(1); e.preventDefault(); break;
+      case 'ArrowDown': softDrop(); e.preventDefault(); break;
+      case 'ArrowUp': doRotate(); e.preventDefault(); break;
+      case 'Space': hardDrop(); e.preventDefault(); break;
+    }
+  });
+
+  document.querySelectorAll('.touch-pad .btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      if(!running || paused || gameOverFlag) return;
+      const act = btn.dataset.act;
+      if(act==='left') move(-1);
+      if(act==='right') move(1);
+      if(act==='down') softDrop();
+      if(act==='rotate') doRotate();
+    });
+  });
+
+  // init static preview
+  board = emptyBoard();
+  score=0; level=1; lines=0; running=false; paused=false; gameOverFlag=false;
+  next = randomPiece();
+  current = randomPiece();
+  updateStats();
+  draw();
+})();
+</script>
+
+</body>
+</html>
